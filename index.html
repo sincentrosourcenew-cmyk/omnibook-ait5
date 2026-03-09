@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMNIBOOK AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-row">
+          <button class="icon-btn" aria-label="menu">☰</button>
+          <h1>OMNIBOOK AI</h1>
+        </div>
+        <div class="profile">👤 Your Name</div>
+      </header>
+
+      <nav class="tabs">
+        <button class="tab active" data-target="dashboard">Dashboard</button>
+        <button class="tab" data-target="create">Create Book</button>
+        <button class="tab" data-target="idea">Book Idea</button>
+        <button class="tab" data-target="generation">Generation</button>
+        <button class="tab" data-target="result">Result</button>
+        <button class="tab" data-target="settings">Settings</button>
+      </nav>
+
+      <main>
+        <section id="dashboard" class="panel active">
+          <h2>🌞 Good morning, Your Name</h2>
+          <article class="hero-card">
+            <h3>📖 CREATE NEW BOOK</h3>
+            <p>Turn your idea into a book in minutes</p>
+            <button class="primary-btn">+ Start Writing</button>
+          </article>
+
+          <h3>📊 YOUR STATISTICS</h3>
+          <div class="stat-grid">
+            <article class="card"><h4>📚 Books</h4><strong>47 Total</strong><span>+12 this month</span></article>
+            <article class="card"><h4>📄 Pages</h4><strong>9,432</strong><span>+2,150 this month</span></article>
+            <article class="card"><h4>⚡ Speed</h4><strong>2.4 min</strong><span>per book</span></article>
+          </div>
+
+          <h3>📚 RECENT BOOKS</h3>
+          <article class="table-card">
+            <table>
+              <thead><tr><th>Book Title</th><th>Pages</th><th>Date</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>AI Revolution</td><td>320</td><td>Dec 12</td><td><button class="ghost-btn">PDF</button></td></tr>
+                <tr><td>Marketing Strategies</td><td>185</td><td>Dec 10</td><td><button class="ghost-btn">PDF</button></td></tr>
+                <tr><td>My Life Story</td><td>412</td><td>Dec 8</td><td><button class="ghost-btn">PDF</button></td></tr>
+                <tr><td>Cooking Secrets</td><td>230</td><td>Dec 5</td><td><button class="ghost-btn">PDF</button></td></tr>
+                <tr><td>Poetry Collection</td><td>98</td><td>Dec 3</td><td><button class="ghost-btn">DOC</button></td></tr>
+              </tbody>
+            </table>
+            <a href="#">View all 47 →</a>
+          </article>
+        </section>
+
+        <section id="create" class="panel">
+          <div class="panel-head"><h2>✍️ Create New Book</h2><div><button class="ghost-btn">Save</button> <button class="ghost-btn">X</button></div></div>
+          <article class="form-card">
+            <label>📖 Book Title<input type="text" placeholder="Enter your book title here..." /></label>
+            <div>
+              <p>🌐 Language</p>
+              <div class="chip-row"><span class="chip active">English</span><span class="chip">Arabic</span><span class="chip">French</span><span class="chip">Spanish</span><span class="chip">German</span><span class="chip">More ▼</span></div>
+            </div>
+            <div class="two-col">
+              <label>Number of pages<input type="number" value="250" /></label>
+              <label>Number of chapters<input type="number" value="12" /></label>
+            </div>
+            <div>
+              <p>🎨 Writing Style</p>
+              <div class="chip-row"><span class="chip">Academic</span><span class="chip">Simple</span><span class="chip active">Professional</span><span class="chip">Creative</span><span class="chip">Technical</span><span class="chip">+Custom</span></div>
+            </div>
+            <label>📁 Book Template<select><option>Standard Book</option><option>Novel</option><option>Textbook</option><option>Poetry</option></select></label>
+            <button class="primary-btn">Next: Idea →</button>
+          </article>
+        </section>
+
+        <section id="idea" class="panel">
+          <div class="panel-head"><h2>💭 Describe Your Book Idea</h2><div><button class="ghost-btn">Back</button><button class="ghost-btn">Next</button></div></div>
+          <article class="form-card">
+            <label>✏️ Tell exactly what you want<textarea rows="12">I want a book about...
+The book should cover:
+• Topic 1
+• Topic 2
+• Topic 3
+
+The writing style should be...
+The target audience is...
+Special instructions: ...</textarea></label>
+            <p class="hint">📝 Word count: 247 / unlimited</p>
+            <p class="hint">💡 Tips: Be as detailed as possible for best results</p>
+            <button class="primary-btn">Generate My Book</button>
+          </article>
+        </section>
+
+        <section id="generation" class="panel">
+          <div class="panel-head"><h2>⚡ Creating Your Book...</h2><button class="ghost-btn">Cancel</button></div>
+          <article class="form-card">
+            <h3>📖 The Future of Artificial Intelligence</h3>
+            <div class="progress-wrap"><div class="progress"></div></div>
+            <p>65% — Writing chapter 8 of 12: "Ethics in AI"</p>
+            <p>⏱️ Estimated time remaining: 45 seconds</p>
+            <ul class="steps">
+              <li class="done">✅ Chapter 1: Introduction</li><li class="done">✅ Chapter 2: History of AI</li><li class="done">✅ Chapter 3: Machine Learning Basics</li><li class="done">✅ Chapter 4: Deep Learning</li><li class="done">✅ Chapter 5: Computer Vision</li><li class="done">✅ Chapter 6: NLP</li><li class="done">✅ Chapter 7: Robotics</li><li class="pending">⏳ Chapter 8: Ethics in AI (Writing...)</li><li class="pending">⏳ Chapter 9: Future Predictions</li><li class="pending">⏳ Chapter 10: Conclusion</li>
+            </ul>
+          </article>
+        </section>
+
+        <section id="result" class="panel">
+          <div class="panel-head"><h2>🎉 Book Generated Successfully!</h2><button class="primary-btn">New Book</button></div>
+          <article class="form-card">
+            <h3>📖 The Future of Artificial Intelligence</h3>
+            <p>👤 By Your Name</p>
+            <p>📊 250 pages | 12 chapters | 78,450 words</p>
+            <div class="cover-preview">📄 Preview Book Cover</div>
+            <p>⬇️ Download Formats:</p>
+            <div class="chip-row"><button class="primary-btn">📥 PDF</button><button class="ghost-btn">📥 Word</button><button class="ghost-btn">📥 EPUB</button><button class="ghost-btn">📥 MOBI</button></div>
+            <h4>📚 Table of Contents</h4>
+            <ol>
+              <li>Chapter 1: Introduction to AI</li><li>Chapter 2: History and Evolution</li><li>Chapter 3: Machine Learning Foundations</li><li>Chapter 4: Deep Learning Explained</li><li>Chapter 5: Computer Vision Applications</li><li>Chapter 6: Natural Language Processing</li><li>Chapter 7: Robotics and Automation</li><li>Chapter 8: Ethics in AI</li><li>Chapter 9: Future Predictions</li><li>Chapter 10: Conclusion</li>
+            </ol>
+          </article>
+        </section>
+
+        <section id="settings" class="panel">
+          <div class="panel-head"><h2>⚙️ Settings</h2><div><button class="ghost-btn">Save</button> <button class="ghost-btn">X</button></div></div>
+          <article class="form-card">
+            <label>Name<input type="text" value="Your Name"/></label>
+            <label>Email<input type="email" value="your.email@example.com"/></label>
+            <div>
+              <p>🌙 Dark Mode</p>
+              <div class="chip-row"><span class="chip active">On</span><span class="chip">Off</span></div>
+            </div>
+            <div>
+              <p>🌐 Default Language</p>
+              <div class="chip-row"><span class="chip active">English</span><span class="chip">Arabic</span><span class="chip">French</span></div>
+            </div>
+            <label>📂 Default Save Location<input type="text" value="/Documents/OMNIBOOK/"/></label>
+            <p>💾 Storage Used: 55GB / 500GB (11%)</p>
+            <div class="progress-wrap"><div class="progress small"></div></div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
