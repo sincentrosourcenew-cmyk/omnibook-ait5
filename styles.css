@@ -1,4 +1,4 @@
 * { box-sizing: border-box; }
 html, body, #root { margin: 0; width: 100%; min-height: 100%; }
-body { background: #fafafa; }
-button { font: inherit; }
+body { background: #fafafa; color: #1f2937; font-family: Inter, system-ui, -apple-system, sans-serif; }
+button, input, textarea, select { font: inherit; }

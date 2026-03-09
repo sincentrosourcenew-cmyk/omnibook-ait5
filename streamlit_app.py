@@ -29,7 +29,7 @@ def _build_embedded_html() -> str:
     html = re.sub(r"<script[^>]*src=[\"']\./app\.js[\"'][^>]*></script>", "", html)
 
     html = html.replace("</head>", f"<style>{css}</style></head>")
-    html = html.replace("</body>", f"<script>{js}</script></body>")
+    html = html.replace('</body>', f'<script type="text/babel" data-presets="react">{js}</script></body>')
     return html
 
 

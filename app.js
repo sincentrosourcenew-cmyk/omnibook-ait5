@@ -13,13 +13,24 @@ const SAMPLE_BOOKS = [
 ];
 
 async function callClaude(messages, maxTokens = 4096, system = "") {
+  const apiKey = window.ANTHROPIC_API_KEY || "";
+  if (!apiKey) {
+    throw new Error("Missing ANTHROPIC API key");
+  }
   const body = { model: "claude-sonnet-4-20250514", max_tokens: maxTokens, messages };
   if (system) body.system = system;
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01"
+    },
     body: JSON.stringify(body),
   });
+  if (!res.ok) {
+    throw new Error(`Claude API error: ${res.status}`);
+  }
   const data = await res.json();
   return data.content?.map((b) => b.text || "").join("") || "";
 }
