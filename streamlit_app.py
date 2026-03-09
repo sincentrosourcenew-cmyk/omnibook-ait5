@@ -19,7 +19,7 @@ def _read_text(name: str) -> str:
 def _build_embedded_html() -> str:
     html = _read_text("index.html")
     css = _read_text("styles.css")
-    js = _read_text("app.js")
+    js = _read_text("app.js").replace("</script>", "<\/script>")
 
     if not html:
         return "<h1>OMNIBOOK AI</h1><p>index.html was not found.</p>"
@@ -39,4 +39,4 @@ st.title("🤍 OMNIBOOK AI")
 st.caption("Clean. Spacious. Powerful.")
 
 embedded = _build_embedded_html()
-components.html(embedded, height=2200, scrolling=True)
+components.html(embedded, height=2400, scrolling=True)

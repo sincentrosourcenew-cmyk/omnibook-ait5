@@ -12,10 +12,14 @@ const SAMPLE_BOOKS = [
   { id: 5, title: "A Season of Silence", pages: 88, chapters: 6, words: 21700, date: "Feb 10", style: "Poetry" },
 ];
 
+function offlineChapter(title, context) {
+  return `${title}\n\n${context || "This chapter presents a clear and complete treatment of the topic with practical examples and structured explanations."}\n\nThis draft was prepared locally because no API key is configured.`;
+}
+
 async function callClaude(messages, maxTokens = 4096, system = "") {
   const apiKey = window.ANTHROPIC_API_KEY || "";
   if (!apiKey) {
-    throw new Error("Missing ANTHROPIC API key");
+    return "";
   }
   const body = { model: "claude-sonnet-4-20250514", max_tokens: maxTokens, messages };
   if (system) body.system = system;
@@ -163,7 +167,10 @@ function CreateFlow({ step, setStep, onComplete, onCancel, userName, notify }) {
           const prompt = `Write chapter ${i + 1} titled ${ch.title}. Context: ${ch.summary || idea}`;
           content = await callClaude([{ role: "user", content: prompt }], 2500, "Write rich content");
         } catch {
-          content = `${ch.title}\n\n${ch.summary || "Detailed chapter content."}`;
+          content = offlineChapter(ch.title, ch.summary || idea.slice(0, 220));
+        }
+        if (!content || !content.trim()) {
+          content = offlineChapter(ch.title, ch.summary || idea.slice(0, 220));
         }
         chapters.push({ title: ch.title, content, words: content.trim().split(/\s+/).length });
         setGenState((p) => ({ ...p, progress: Math.round(((i + 1) / total) * 100), chapters: [...chapters], log: p.log.map((l, idx) => idx === p.log.length - 1 ? { ...l, status: "done" } : l) }));
